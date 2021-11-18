@@ -14,10 +14,11 @@
 <script>
 import { staggeredFloatUpFn, floatDownFn } from '@square/maker/utils/transitions';
 
+const singleItem = 1;
 const defaultItemCount = [
 	{
 		minWidth: 0,
-		itemCount: 1,
+		itemCount: singleItem,
 	},
 ];
 
@@ -80,11 +81,10 @@ export default {
 					items = count.itemCount;
 				}
 			});
-			if (items === defaultItemCount[0].itemCount) {
+			if (items === singleItem) {
 				return index;
 			}
-			const remainder = index % items;
-			return remainder > 0 ? remainder : items;
+			return Math.floor((index - singleItem) / items);
 		},
 	},
 };

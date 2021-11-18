@@ -245,7 +245,7 @@ export function staggeredFloatUpFn({ element, onComplete }) {
 	const elementStyler = styler(element);
 	const styleFn = toSubtleFloatyY;
 	const animationDirection = animateUp;
-	const delay = 150;
+	const delay = 100;
 	const staggerDelay = element.dataset.loadIndex * delay;
 	elementStyler.set(styleFn(animationDirection.from));
 	elementStyler.render();

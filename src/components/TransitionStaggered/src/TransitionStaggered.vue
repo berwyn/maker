@@ -77,6 +77,7 @@ export default {
 			const { staggerItemCount, viewportWidth } = this;
 			let items;
 			staggerItemCount.forEach((count) => {
+				console.log(viewportWidth);
 				if (count.minWidth < viewportWidth) {
 					items = count.itemCount;
 				}

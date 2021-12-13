@@ -9,11 +9,16 @@
 		@on-swipe-down="onSwipeDown"
 	>
 		<slot />
+		<pseudo-window
+			body
+			:class="$s.disableScroll"
+		/>
 	</m-touch-capture>
 </template>
 
 <script>
 import { throttle } from 'lodash';
+import PseudoWindow from 'vue-pseudo-window';
 import { MTouchCapture } from '@square/maker/components/TouchCapture';
 import modalApi from './modal-api';
 
@@ -21,6 +26,7 @@ export default {
 	name: 'Modal',
 
 	components: {
+		PseudoWindow,
 		MTouchCapture,
 	},
 
@@ -108,5 +114,11 @@ export default {
 		min-height: 180px;
 		max-height: calc(100vh - 64px);
 	}
+}
+
+.disableScroll {
+	overflow: hidden;
+	-webkit-overflow-scrolling: none;
+	touch-action: none;
 }
 </style>
